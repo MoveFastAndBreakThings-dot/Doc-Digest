@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: context_summarizer/backend-api
+        working-directory: backend-api
     strategy:
       matrix:
         node-version: [20.x]
@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: context_summarizer/frontend/cs 
+        working-directory: frontend
     strategy:
       matrix:
         node-version: [20.x]
@@ -67,7 +67,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: context_summarizer/backend-ai
+        working-directory: backend-ai
     strategy:
       matrix:
         python-version: [3.10]
@@ -86,7 +86,7 @@ jobs:
           pip install pytest flake8
 
       - name: Lint
-        run: flake8 . || true  # Optional: won't fail build on style issues
+        run: flake8 . || true  # Won't fail the build on style issues
 
       - name: Run tests
         run: pytest
